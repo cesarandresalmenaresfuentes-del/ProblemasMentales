@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Causas y traumas</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #3b2222;
+    color: rgb(255,255,255);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .contenedor {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    background-color: #2a1818;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 3px solid #ffca28;
+  }
+  header img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  nav {
+    background-color: #ffca28;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 3px solid #2a1818;
+  }
+  nav a {
+    color: black;
+    margin: 0 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05em;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #2a1818;
+  }
+
+  main {
+    background-color: rgb(191,179,179);
+    color: #222;
+    padding: 30px;
+  }
+  main h2 {
+    margin-top: 30px;
+  }
+
+  .fila-imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  .fila-imagenes img {
+    height: 250px;
+  }
+
+  .fila-audio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px 0;
+    align-items: center;
+  }
+  .fila-audio > div {
+    flex: 1 1 45%;
+    min-width: 280px;
+  }
+  .fila-audio iframe {
+    width: 100%;
+  }
+
+  .seccion-video {
+    margin: 30px 0;
+  }
+  .seccion-video iframe {
+    display: block;
+    margin: 0 auto 15px auto;
+    max-width: 100%;
+  }
+
+  /* ---- Tabla de causas y tratamientos ---- */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 10px 0 30px 0;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  }
+  th {
+    background-color: #1b5e20;
+    color: white;
+    padding: 16px 18px;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  /* Encabezado principal, un poco más grande y centrado */
+  table > tr:first-child th {
+    text-align: center;
+    font-size: 1.3em;
+    background-color: #14431a;
+    letter-spacing: .03em;
+  }
+  td {
+    border-bottom: 1px solid #d8d0d0;
+    padding: 16px 18px;
+    text-align: justify;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  /* Nombre del trastorno destacado con una franja de color */
+  td b {
+    display: inline-block;
+    font-size: 1.1em;
+    color: #1b5e20;
+    padding-bottom: 4px;
+    border-bottom: 3px solid #ffca28;
+  }
+  /* Franjas alternas para que cada trastorno se distinga fácil */
+  tr:nth-of-type(4) td { background-color: #f4f1e8; }
+  tr:nth-of-type(5) td { background-color: #ffffff; }
+  tr:nth-of-type(6) td { background-color: #f4f1e8; }
+  tr:last-child td {
+    border-bottom: none;
+    text-align: center;
+    background-color: #efe8dc;
+    padding: 20px;
+  }
+  tr:last-child img {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15);
+    transition: transform 0.3s ease;
+  }
+  tr:last-child img:hover {
+    transform: translateY(-6px);
+  }
+
+  footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 24px 18px;
+    border-radius: 0 0 8px 8px;
+    border-top: 3px solid #ffca28;
+  }
+  footer p { margin: 6px 0; }
+
+  .redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 12px;
+  }
+  .redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: #1a1a1a;
+    border: 2px solid #ffca28;
+    border-radius: 50%;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .redes a:hover {
+    transform: translateY(-4px) scale(1.08);
+    background-color: #ffca28;
+  }
+  .redes img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+  .redes a[href*="wa.me"] img {
+    width: 26px;
+    height: 26px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header>
+    <img src="imagenes/dibujo.svg" alt="Dibujo de cerebro">
+  </header>
+
+  <nav>
+    <a href="index.html">Bienvenidas</a>
+    <a href="pagina2.html">Principal Saber</a>
+    <a href="pagina3.html">Causas y Traumas</a>
+    <a href="pagina4.html">Cuentanos</a>
+    <a href="pagina5.html">Sobre mi</a>
+  </nav>
+
+  <main>
+<table> 
+ <tr> 
+  <th colspan="3">¿Por que son provocados o causados estos transtornos mentales?</th> 
+ </tr>
+
+ <tr>  <th colspan="3">Por que hay que saber algo es que ellos dependen de VARIOS FACTORES tanto como biologicos
+  sociales, psicologicos que por lo cual estos ellos son alteraciones que tranforman los procesos como lo
+  pueden ser el razonamiento, la percepcion de la realidad y tambien como sus emociones esto siendo que la mayoria
+  de los transtornos mentales afecten la vida de una persona en diferentes aspectos de su vida. </th> </tr>
+
+<tr><th colspan="3">Por lo cual aqui nosotros veremos como es causado el transtorno mental y despues como uno puedo
+    por lo menos disminuir sus efectos y que no nos afecten en el dia a dia de nuestra vida.</th> 
+ </tr> 
+
+ <tr> 
+ <td><b>Depresion</b></td> 
+ <td>La Depresion depressio del latin, que por lo cual este es un transtorno del estado de animo el cual tiene dos clasificaciones
+  el cual este se puede quedar durante un momento en tu o vida o sino en los peores casos es que puede durar permanentemente
+  el cual se le describe que puede ser transitorio o permanente.
+  que por lo cual de esta es que puede la persona llevar un caracter pesimista o de por asi decirlo en sus acciones 
+  que este aburrido o ya cansado de seguir existiendo resumiendo como este puede ser que lleve aproximadamente bastante 
+  de su tiempo en la vida cotidiana la melancolia progresiva.
+ </td> 
+  <td>Por lo cual aqui mostraremos como se puede disminuir la depresion y por lo cual este es un transtorno mental no tan facil
+  de llevar a cabo ya que este se trata de una enfermedad mental MULTIFACTORIAL que por lo cual afecta la neurotransmision del sistema
+  que por lo cual de esto los tratamientos son: PSICOTERAPIO y tambien con PSICOFARMACOLOGIA.
+  ya que la psicoterapia ayuda a tratar los problemas o afectaciones psiquicas mientras que como se dice en su nombre psicofarmacologia
+  es que aqui hacen la trata de farmacos para aliviar las afectaciones del paciente.
+  </td> 
+ </tr> 
+
+ <tr> 
+ <td><b>Bipolaridad</b></td> 
+ <td>el transtorno bipolar o tambien llamado transtorno afectivo bipolar(TAB) el cual este se trata de que la persona afectada por
+ fluctuaciones notables en el humor, comportamiento de ella que por lo cual se trata de que no es un problema que sea pasajero que solo
+ sea por un corto tiempo sino que puede afectar a la persona durante meses o hasta AÑOS y por lo cual lo que altera a la persona este transtorno
+ es su estado de animo que puede estar feliz durante un momento y que despues este triste o enojada al siguiente momento
+ </td> 
+  <td>Ahora vamos a como poder tratar este transtorno es que hay que saber que tipo de nivel tiene la persona ya que este cuenta con niveles 
+ como transtorno bipolar tipo 1 y 2 que por lo cual este puede ser molesto de tratar ya que no necesita de tratar con medicamentos o farmacos sino
+ que ahora con lo que tenemos ir con PSIQUIATRIA y PSICOLOGIA CLINICA ya que la psiquiatria trata al paciente asegurar su autonomia y la adaptacion 
+ de este al enterno mientras que la psicologia clinica que es para tratar a la salud mental de este.
+  </td> 
+ </tr> 
+
+ <tr>
+  <td><b>Transtorno por deficit de atencion(TDAH)</b></td> 
+ <td>Como vemos el TDAH o transtorno por deficit de atencion es que un transtorno del neuro-desarrollo que por lo cual principalment afecta a los 
+  infantes pero este suele persistir en la edad adulta de que la persona puede tener actitudes como impulsivas que puede ser en el ambito calmado o sino
+  que tambien en la hiperactividad que puede est llevar a la inquietud que por lo cual causa periodos de distraccion o tambien en la regulacion de la
+  atencion hacia lo que se esta haciendo o por lo que en esta persona debe mantenerse concentrada.
+ </td> 
+ <td>Y por lo cual para poder tratar este transtorno mental es que primero hay que saber, ¿en que area de la vida afecta? ya que el TDAH puede ser
+  beneficioso por que te puede dar el HIPERFOCO que es obtener aun mas mayor concentracion y atencion hacia lo que se esta haciendo pero si este afecta
+ negativamente a la persona que puede ser en la Hiperactividad de no poder tan solo un momento mantenerse tranquila o concentrada este transtorno
+ necesita ser tratado con PSIQUIATRIA para asi poder contener la concentracion.
+ </td> 
+  </tr> 
+
+  <tr>
+  <td><img src="imagenes/Raro.png" width="150"></td>
+  <td><img src="imagenes/CerebroLector.svg" width="150"></td>
+  <td><img src="imagenes/Cerebro medico.svg" width="150"></td>
+  </tr>
+</table> 
+ 
+
+  </main>
+
+  <footer>
+    <p>Creado por [Almenares Cesar Andres Fuentes] - 2026</p>
+    <p>Hecho en el Taller de Informática</p>
+    <p>
+      Visita mis páginas sociales UwU:
+    </p>
+    <div class="redes">
+      <a href="https://www.facebook.com/profile.php?id=61593282148997" target="_blank">
+        <img src="imagenes/Face-removebg-preview.png" alt="Facebook">
+      </a>
+      <a href="https://www.tiktok.com/@cesarestabien?lang=es" target="_blank">
+        <img src="imagenes/Tikok-removebg-preview.png" alt="TikTok">
+      </a>
+      <a href="https://wa.me/573332637874" target="_blank">
+        <img src="imagenes/wha-removebg-preview.png" alt="WhatsApp">
+      </a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Principal Saber</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #3b2222;
+    color: rgb(255,255,255);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .contenedor {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    background-color: #2a1818;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 3px solid #ffca28;
+  }
+  header img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  nav {
+    background-color: #ffca28;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 3px solid #2a1818;
+  }
+  nav a {
+    color: black;
+    margin: 0 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05em;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #2a1818;
+  }
+
+  main {
+    background-color: rgb(191,179,179);
+    color: #222;
+    padding: 30px;
+  }
+  main h2 {
+    margin-top: 30px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #ff0f7b;
+  }
+  main h2:first-child {
+    margin-top: 0;
+  }
+
+  .fila-imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0,0,0,.12);
+  }
+  .fila-imagenes img {
+    height: 250px;
+  }
+
+  .fila-audio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px 0;
+    align-items: center;
+  }
+  .fila-audio > div {
+    flex: 1 1 45%;
+    min-width: 280px;
+  }
+  .fila-audio iframe {
+    width: 100%;
+  }
+
+  .seccion-video {
+    margin: 30px 0;
+    padding-top: 10px;
+    border-top: 2px solid rgba(0,0,0,.12);
+  }
+  .seccion-video iframe {
+    display: block;
+    margin: 0 auto 15px auto;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 24px 18px;
+    border-radius: 0 0 8px 8px;
+    border-top: 3px solid #ffca28;
+  }
+  footer p { margin: 6px 0; }
+
+  .redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 12px;
+  }
+  .redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: #1a1a1a;
+    border: 2px solid #ffca28;
+    border-radius: 50%;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .redes a:hover {
+    transform: translateY(-4px) scale(1.08);
+    background-color: #ffca28;
+  }
+  .redes img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+  .redes a[href*="wa.me"] img {
+    width: 26px;
+    height: 26px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header>
+    <img src="imagenes/dibujo.svg" alt="Dibujo de cerebro">
+  </header>
+
+  <nav>
+    <a href="index.html">Bienvenidas</a>
+    <a href="pagina2.html">Principal Saber</a>
+    <a href="pagina3.html">Causas y Traumas</a>
+    <a href="pagina4.html">Cuentanos</a>
+    <a href="pagina5.html">Sobre mi</a>
+  </nav>
+
+  <main>
+    <h2>QUÉ ES O QUÉ SON LOS TRASTORNOS MENTALES</h2>
+
+    <div class="fila-imagenes">
+      <img src="imagenes/CerebroLector.svg" alt="Cerebro lector">
+      <img src="imagenes/Chismoso Cerebro.svg" alt="Cerebro chismoso">
+      <img src="imagenes/Alto Cerebro.svg" alt="Cerebro alto">
+      <img src="imagenes/Cerebro-Niño.svg" alt="Cerebro niño">
+    </div>
+
+    <h2>Audio sobre los trastornos mentales</h2>
+    <div class="fila-audio">
+      <div>
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+          src="https://open.spotify.com/embed/episode/6YKsWWwFy5glX1ZPRJNYQe?utm_source=generator&si=eebf557c05be41eb"
+          height="200" frameborder="0" allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div>
+        <p>Aquí, para los oyentes experimentados, tenemos un podcast sobre los trastornos mentales de 14:43 minutos, cuyos créditos vienen de parte de <mark>Brain to Brain - Psicología</mark>, de la aplicación o sitio web llamado <u>Spotify</u>, por lo cual es ideal si tu atención está más centrada y aplicada en el área de la escucha :3.</p>
+      </div>
+    </div>
+
+    <h2>Video sobre los trastornos mentales</h2>
+    <div class="seccion-video">
+      <iframe width="380" height="280" src="https://www.youtube.com/embed/H566Uza-6Eo?si=CZanfE5GaggrGZi1"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <p>Aquí está un video que proviene del canal <mark>Mente Aprende</mark>, en el cual el psicólogo <u>Jorge Franco</u> da las mismas explicaciones que el podcast de Spotify, solo cambiando algunas frases o palabras, por lo cual está hecho para las personas principiantes en el tema, ya que va mostrando imágenes según explica cómo afectan al cerebro, visualizándolo.</p>
+    </div>
+
+    <h2>Todo sobre esta parte</h2>
+    <p>Aquí todo lo que quiero llegar es cómo, por medio de las explicaciones de los trastornos mentales, pueden cambiar los hábitos de una persona drásticamente o incluso su vida, lo cual nos ayuda a identificarlos por si acaso nosotros tenemos uno, para no dejarnos llevar, o para identificárselo a otra persona, ya que los trastornos mentales, por más comunes o poco peligrosos que sean, pueden ser malos y dañarle la vida a una persona o a nosotros mismos.</p>
+
+  </main>
+
+  <footer>
+    <p>Creado por [Almenares Cesar Andres Fuentes] - 2026</p>
+    <p>Hecho en el Taller de Informática</p>
+    <p>
+      Visita mis páginas sociales UwU:
+    </p>
+    <div class="redes">
+      <a href="https://www.facebook.com/profile.php?id=61593282148997" target="_blank">
+        <img src="imagenes/Face-removebg-preview.png" alt="Facebook">
+      </a>
+      <a href="https://www.tiktok.com/@cesarestabien?lang=es" target="_blank">
+        <img src="imagenes/Tikok-removebg-preview.png" alt="TikTok">
+      </a>
+      <a href="https://wa.me/573332637874" target="_blank">
+        <img src="imagenes/wha-removebg-preview.png" alt="WhatsApp">
+      </a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

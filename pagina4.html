@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cuentanos</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #3b2222;
+    color: rgb(255,255,255);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .contenedor {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    background-color: #2a1818;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 3px solid #ffca28;
+  }
+  header img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  nav {
+    background-color: #ffca28;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 3px solid #2a1818;
+  }
+  nav a {
+    color: black;
+    margin: 0 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05em;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #2a1818;
+  }
+
+  main {
+    background-color: rgb(191,179,179);
+    color: #222;
+    padding: 30px;
+  }
+  main h2 {
+    margin-top: 30px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #ff0f7b;
+  }
+  main h2:first-child {
+    margin-top: 0;
+  }
+
+  /* --- Bloque formulario + mapa lado a lado, mismo tamaño --- */
+  .seccion-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: stretch;
+    margin-top: 20px;
+  }
+
+  .mapa,
+  .formulario {
+    flex: 1 1 380px;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  }
+
+  .mapa {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .mapa h3 { margin-top: 0; }
+  .mapa iframe {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    border: 0;
+    border-radius: 8px;
+  }
+
+  .formulario label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  .formulario label:first-child { margin-top: 0; }
+  .formulario input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .formulario input:focus {
+    outline: none;
+    border-color: #ffca28;
+    box-shadow: 0 0 0 3px rgba(255,202,40,0.35);
+  }
+  .formulario button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffca28;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+  }
+  .formulario button:hover {
+    background-color: #e0ac1a;
+    transform: translateY(-2px);
+  }
+
+  /* --- Easter egg six-seven, ahora visible --- */
+  .huevo-secreto {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 18px auto 0 auto;
+    padding: 8px 16px;
+    background-color: #ffca28;
+    color: #2a1818;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.95em;
+    cursor: pointer;
+    border: 2px solid #2a1818;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  .huevo-secreto:hover {
+    transform: translateY(-2px) scale(1.04);
+    background-color: #e0ac1a;
+  }
+
+  .six-seven-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+  .six-seven-overlay.activo {
+    display: flex;
+  }
+  .six-seven-tarjeta {
+    background: #fff;
+    color: #222;
+    padding: 30px 40px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    animation: aparecer 0.35s ease;
+  }
+  .six-seven-tarjeta .cuenta {
+    font-size: 1.3em;
+    color: #555;
+  }
+  .six-seven-tarjeta .resultado {
+    font-size: 3em;
+    color: #e0ac1a;
+    margin: 10px 0;
+    animation: rebote 0.6s ease infinite alternate;
+  }
+  .six-seven-tarjeta button {
+    margin-top: 15px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #ffca28;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  /* Reproductor de YouTube oculto que suena al abrir el easter egg */
+  .six-seven-audio {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  @keyframes aparecer {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  @keyframes rebote {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+  }
+
+  footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 24px 18px;
+    border-radius: 0 0 8px 8px;
+    border-top: 3px solid #ffca28;
+  }
+  footer p { margin: 6px 0; }
+
+  .redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 12px;
+  }
+  .redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: #1a1a1a;
+    border: 2px solid #ffca28;
+    border-radius: 50%;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .redes a:hover {
+    transform: translateY(-4px) scale(1.08);
+    background-color: #ffca28;
+  }
+  .redes img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+  .redes a[href*="wa.me"] img {
+    width: 26px;
+    height: 26px;
+  }
+
+  @media (max-width: 700px) {
+    .mapa iframe { min-height: 280px; }
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header>
+    <img src="imagenes/dibujo.svg" alt="Dibujo de cerebro">
+  </header>
+
+  <nav>
+    <a href="index.html">Bienvenidas</a>
+    <a href="pagina2.html">Principal Saber</a>
+    <a href="pagina3.html">Causas Y Traumas</a>
+    <a href="pagina4.html">Cuentanos</a>
+    <a href="pagina5.html">Sobre mi</a>
+  </nav>
+
+  <main>
+    <h2>Seccion Personal Sobre ti :)</h2>
+    <p>Cuéntanos un poco sobre ti y dónde te encuentras, para que podamos entender mejor a quiénes llega esta información.</p>
+
+    <div class="seccion-contacto">
+
+      <div class="mapa">
+        <h3>Ubicación</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.559871543191!2d-73.27556452637761!3d10.
+        45645718967352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8ab9e17c82d441%3A0xe55729598e7fcf2!2sCl.%2016c
+        %20Bis%20%23%2033B-25%2C%20Valledupar%2C%20Cesar!5e0!3m2!1ses-419!2sco!4v1787833117388!5m2!1ses-419!2sco"
+        allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+
+      <form class="formulario">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+
+        <label for="ciudad">Ciudad</label>
+        <input type="text" id="ciudad" name="ciudad" placeholder="Escribe tu ciudad">
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha">
+
+        <button type="submit">Enviar</button>
+      </form>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Creado por [Almenares Cesar Andres Fuentes] - 2026</p>
+    <p>Hecho en el Taller de Informática</p>
+    <p>
+      Visita mis páginas sociales UwU:
+    </p>
+    <div class="redes">
+      <a href="https://www.facebook.com/profile.php?id=61593282148997" target="_blank">
+        <img src="imagenes/Face-removebg-preview.png" alt="Facebook">
+      </a>
+      <a href="https://www.tiktok.com/@cesarestabien?lang=es" target="_blank">
+        <img src="imagenes/Tikok-removebg-preview.png" alt="TikTok">
+      </a>
+      <a href="https://wa.me/573332637874" target="_blank">
+        <img src="imagenes/wha-removebg-preview.png" alt="WhatsApp">
+      </a>
+    </div>
+
+    <span class="huevo-secreto" onclick="mostrarSixSeven()">¿Cuánto es 33.5 × 2? 🥚 (easter egg)</span>
+  </footer>
+
+  <div class="six-seven-overlay" id="sixSevenOverlay">
+    <div class="six-seven-tarjeta">
+      <div class="cuenta">33.5 &times; 2 =</div>
+      <div class="resultado">67 🖐️6️⃣7️⃣</div>
+      <div>six... seven 😳</div>
+      <button onclick="cerrarSixSeven()">cerrar</button>
+    </div>
+  </div>
+
+  <!-- Reproductor de YouTube oculto, controlado por la API para poder mandarle "play" al hacer clic -->
+  <div id="sixSevenAudio" class="six-seven-audio"></div>
+
+</div>
+
+<script>
+  // --- Carga la API de YouTube ---
+  var tagYT = document.createElement('script');
+  tagYT.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tagYT);
+
+  var ytPlayer;
+  var ytListo = false;
+
+  // Esta funcion la llama automaticamente la API de YouTube cuando esta lista
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('sixSevenAudio', {
+      height: '1',
+      width: '1',
+      videoId: '5uiBCpHIuXI', // Analog Horror Funk (Bad Habit Horror Funk - 67) - DJ Raulipues
+      playerVars: {
+        autoplay: 0,
+        controls: 0
+      },
+      events: {
+        onReady: function () {
+          ytListo = true;
+        }
+      }
+    });
+  }
+
+  function mostrarSixSeven() {
+    document.getElementById('sixSevenOverlay').classList.add('activo');
+    if (ytListo) {
+      ytPlayer.seekTo(0);
+      ytPlayer.unMute();
+      ytPlayer.setVolume(100);
+      ytPlayer.playVideo();
+    }
+  }
+
+  function cerrarSixSeven() {
+    document.getElementById('sixSevenOverlay').classList.remove('activo');
+    if (ytListo) {
+      ytPlayer.pauseVideo();
+    }
+  }
+</script>
+</body>
+</html>

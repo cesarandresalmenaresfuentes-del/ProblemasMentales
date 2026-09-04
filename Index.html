@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Bienvenidos</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #3b2222;
+    color: rgb(255,255,255);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .contenedor {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    background-color: #2a1818;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 3px solid #ffca28;
+  }
+  header img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  nav {
+    background-color: #ffca28;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 3px solid #2a1818;
+  }
+  nav a {
+    color: black;
+    margin: 0 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05em;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #2a1818;
+  }
+
+  main {
+    background-color: rgb(191,179,179);
+    color: #222;
+    padding: 30px;
+  }
+
+  /* Línea decorativa debajo del título */
+  main h2 {
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 14px;
+    position: relative;
+  }
+  main h2::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    background-color: #ff0f7b;
+    border-radius: 4px;
+    margin: 12px auto 0;
+  }
+
+  .fila-bienvenida {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .fila-bienvenida > div {
+    flex: 1 1 45%;
+    min-width: 280px;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .fila-bienvenida img {
+    max-width: 70%;
+    height: auto;
+  }
+
+  /* Línea vertical divisoria entre las dos columnas (solo en pantallas anchas) */
+  @media (min-width: 660px) {
+    .fila-bienvenida > div:first-child {
+      border-right: 2px solid rgba(0,0,0,.15);
+    }
+  }
+
+  /* Línea debajo del título de cada columna */
+  .fila-bienvenida p:first-of-type {
+    font-weight: bold;
+    font-size: 1.15em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ff0f7b;
+    display: inline-block;
+  }
+
+  footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 24px 18px;
+    border-radius: 0 0 8px 8px;
+    border-top: 3px solid #ffca28;
+  }
+  footer p { margin: 6px 0; }
+
+  .redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 12px;
+  }
+  .redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: #1a1a1a;
+    border: 2px solid #ffca28;
+    border-radius: 50%;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .redes a:hover {
+    transform: translateY(-4px) scale(1.08);
+    background-color: #ffca28;
+  }
+  .redes img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+  .redes a[href*="wa.me"] img {
+    width: 26px;
+    height: 26px;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
+
+  <header>
+    <img src="imagenes/dibujo.svg" alt="Dibujo de cerebro">
+  </header>
+
+  <nav>
+    <a href="index.html">Bienvenidas</a>
+    <a href="pagina2.html">Principal Saber</a>
+    <a href="pagina3.html">Causas y Traumas</a>
+    <a href="pagina4.html">Cuentanos</a>
+    <a href="pagina5.html">Sobre mi</a>
+  </nav>
+
+  <main>
+    <h2>Bienvenidos</h2>
+
+    <div class="fila-bienvenida">
+      <div>
+        <img src="imagenes/gracias.png" alt="Gracias">
+        <p>Bienvenidos a mi página web =3</p>
+        <p>Hola, aquí yo vendré con esta página sobre los trastornos mentales y de cómo pueden afectar a una persona mentalmente y hasta, en casos comunes, físicamente, por no proteger, por así decir, su cuerpo al dejarse exponer tan fácilmente y dejarse caer sobre eso la enfermedad mental.</p>
+      </div>
+      <div>
+        <img src="imagenes/rey.png" alt="Rey">
+        <p>¿A qué quiero llegar?</p>
+        <p>Lo que quiero llegar es mostrar, a través del progreso en la página, cómo realmente una enfermedad mental, aun siendo solo por costumbres o hábitos, puede destrozar a una persona igual que una enfermedad mortal, ya que si no se cuida y no es consciente sobre lo que quiere...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Creado por [Almenares Cesar Andres Fuentes] - 2026</p>
+    <p>Hecho en el Taller de Informática</p>
+    <p>
+      Visita mis páginas sociales UwU:
+    </p>
+    <div class="redes">
+      <a href="https://www.facebook.com/profile.php?id=61593282148997" target="_blank">
+        <img src="imagenes/Face-removebg-preview.png" alt="Facebook">
+      </a>
+      <a href="https://www.tiktok.com/@cesarestabien?lang=es" target="_blank">
+        <img src="imagenes/Tikok-removebg-preview.png" alt="TikTok">
+      </a>
+      <a href="https://wa.me/573332637874" target="_blank">
+        <img src="imagenes/wha-removebg-preview.png" alt="WhatsApp">
+      </a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
